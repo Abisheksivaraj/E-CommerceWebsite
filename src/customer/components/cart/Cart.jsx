@@ -1,7 +1,16 @@
 import React from "react";
 import CartItem from "./CartItem";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
+
+
+const navigate = useNavigate()
+const handleBuy=()=>{
+  // alert("You have successfully bought the product");
+  navigate("/address?step=2")
+}
+
   return (
     <div className="min-h-screen bg-gray-100 py-8">
       <div className="container mx-auto lg:grid lg:grid-cols-3 lg:px-16 relative">
@@ -50,7 +59,7 @@ const Cart = () => {
               </div>
 
               {/* Checkout Button */}
-              <button className="w-full mt-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400">
+              <button onClick={handleBuy} className="w-full mt-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400">
                 Proceed To Buy
               </button>
             </div>

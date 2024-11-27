@@ -6,17 +6,22 @@ import Product from './customer/components/products/Product'
 import ProductDetails from './customer/components/ProductDetails/ProductDetails'
 import Cart from './customer/components/cart/Cart'
 import Address from './customer/components/address/Address'
+import Order from './customer/components/orderPage/Order'
+import OrderDetails from './customer/components/orderPage/OrderDetails'
+import { Route, Routes } from 'react-router-dom'
+import CustomerRouter from './customer/Router/CustomerRouter'
 const App = () => {
   return (
     <div>
     
-    <Navbar/>
-    {/* <HomePage/> */}
-    {/* <Product/> */}
-    {/* <ProductDetails/> */}
-    {/* <Cart/> */}
-    <Address/>
-    <Footer/>
+    <Routes>
+      <Route path='/*' element={<CustomerRouter/>}/>
+    </Routes>
+
+
+    
+    
+   
     </div>
   )
 }

@@ -7,6 +7,7 @@ import ProductReview from "./productReview";
 import Box from "@mui/material/Box";
 import HomeSectionCard from "../../Pages/Homepage/HomeSectionCard";
 import { Mens_Kurta } from "../../../Data/HomePage_Datas/Mens_Kurta";
+import { useNavigate } from "react-router-dom";
 const product = {
   name: "Basic Tee 6-Pack",
   price: "$192",
@@ -65,6 +66,12 @@ function classNames(...classes) {
 export default function productDetails() {
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
+const navigate = useNavigate()
+
+const handleAddToCart=()=>{
+navigate("/cart")
+}
+
 
   return (
     <div className="bg-white lg:px-20">
@@ -273,7 +280,7 @@ export default function productDetails() {
                   </fieldset>
                 </div>
 
-                <button
+                <button onClick={handleAddToCart}
                   type="submit"
                   className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
@@ -446,7 +453,7 @@ export default function productDetails() {
 
           <div className="flex flex-wrap space-y-5 pt-5">
             {Mens_Kurta.map((item) => (
-              <HomeSectionCard product={item}/>
+              <HomeSectionCard product={item} />
             ))}
           </div>
         </section>
