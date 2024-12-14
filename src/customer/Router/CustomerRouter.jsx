@@ -10,6 +10,8 @@ import ProductDetails from "../components/ProductDetails/ProductDetails";
 import Address from "../components/address/Address";
 import Order from "../components/orderPage/Order";
 import OrderDetails from "../components/orderPage/OrderDetails";
+import Register from "../Auth/Register";
+import Login from "../Auth/Login";
 const CustomerRouter = () => {
   return (
     <div>
@@ -17,13 +19,15 @@ const CustomerRouter = () => {
         <Navigation />
       </div>
       <Routes>
+        <Route path="/register" element={<HomePage />} />
+        <Route path="/login" element={<HomePage />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/:levelOne/:levelTwo/:levelThree" element={<Product />} />
         <Route path="/product/:productId" element={<ProductDetails />} />
         <Route path="/address" element={<Address />} />
         <Route path="/account/order" element={<Order />} />
-        <Route path="/account/order/:orderId" element={<OrderDetails/>} />
+        <Route path="/account/order/:orderId" element={<OrderDetails />} />
         {/* <OrderDetails/> */}
       </Routes>
 

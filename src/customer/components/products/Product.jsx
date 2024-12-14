@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Dialog,
   DialogBackdrop,
@@ -23,11 +23,17 @@ import ProductCard from "./ProductCard";
 import { Mens_Kurta } from "../../../Data/HomePage_Datas/Mens_Kurta";
 import { filters, singleFilter } from "./ProductFilter";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
-import { Navigate, useNavigate, useLocation } from "react-router-dom";
+import {
+  Navigate,
+  useNavigate,
+  useLocation,
+  useParams,
+} from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { findProducts } from "../../../State/Product/Action";
+import { store } from "../../../State/Store";
+import { Pagination } from "@mui/material";
 const sortOptions = [
-  // { name: "Most Popular", href: "#", current: true },
-  // { name: "Best Rating", href: "#", current: false },
-  // { name: "Newest", href: "#", current: false },
   { name: "Price: Low to High", href: "#", current: false },
   { name: "Price: High to Low", href: "#", current: false },
 ];
@@ -41,6 +47,21 @@ export default function product() {
 
   const location = useLocation();
   const navigate = useNavigate();
+  const param = useParams();
+  const dispatch = useDispatch();
+  const decodedQueryString = decodeURIComponent(location.search);
+  const searchParams = new URLSearchParams(decodedQueryString);
+  const colorValue = searchParams.get("color");
+  const sizeValue = searchParams.get("size");
+  const priceValue = searchParams.get("price");
+  const sortValue = searchParams.get("sort");
+  const stockValue = searchParams.get("stock");
+  const pageNumber = searchParams.get("page");
+  const discount = searchParams.get("discount");
+
+  const { product } = useSelector((store) => store);
+  console.log("pages",product.products?.totalPages);
+  
 
   const handleFilter = (value, sectionId) => {
     const searchParams = new URLSearchParams(location.search);
@@ -71,8 +92,42 @@ export default function product() {
     navigate({ search: `?${query}` });
   };
 
+  useEffect(() => {
+    const [minPrice, maxPrice] =
+      priceValue === null ? [0, 10000] : priceValue.split("-").map(Number);
+    const data = {
+      category: param.levelThree,
+      colors: colorValue || [],
+      sizes: sizeValue | [],
+      minPrice,
+      maxPrice,
+      minDiscount: discount || 0,
+      sort: sortValue || "price_low",
+      pageNumber: pageNumber - 1,
+      pageSize: 10,
+      stock: stockValue,
+    };
+    dispatch(findProducts(data));
+  }, [
+    param.levelThree,
+    colorValue,
+    sizeValue,
+    priceValue,
+    discount,
+    sortValue,
+    pageNumber,
+    stockValue,
+  ]);
+
+  const handlePagiationChange = (value) => {
+    const searchParams = new URLSearchParams(location.search);
+    searchParams.set("page", value);
+    query = searchParams.toString();
+    navigate({ search: `{query}` });
+  };
+
   return (
-    <div className="bg-white flex items-center justify-start">
+    <div className="bg-white  flex items-center justify-start">
       <div>
         {/* Mobile filter dialog */}
         <Dialog
@@ -159,7 +214,7 @@ export default function product() {
         </Dialog>
 
         <main className="mx-auto px-4 sm:px-6 lg:px-20">
-          <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
+          <div className="flex  items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900">
               New Arrivals
             </h1>
@@ -342,11 +397,21 @@ export default function product() {
               {/* Product grid */}
               <div className="lg:col-span-3 w-full">
                 <div className="flex flex-wrap justify-center bg-white py-5">
-                  {Mens_Kurta.map((item) => (
-                    <ProductCard product={item} />
-                  ))}
+                  {product.products &&
+                    product.products?.content?.map((item) => (
+                      <ProductCard product={item} />
+                    ))}
                 </div>
               </div>
+            </div>
+          </section>
+          <section className="w-full flex items-center justify-center px-[3.6rem]">
+            <div className="px-4 py-5 flex justify-center">
+              <Pagination
+                count={product.products?.totalPages}
+                color="primary"
+                onChange={handlePagiationChange}
+              />
             </div>
           </section>
         </main>

@@ -16,11 +16,19 @@
     "@heroicons/react": "^2.2.0",
     "@mui/icons-material": "^6.1.8",
     "@mui/material": "^6.1.8",
+    "@mui/styles": "^6.2.0",
+    "axios": "^1.7.9",
+    "axis": "^1.0.0",
     "heroicons": "^2.2.0",
+    "path-browserify": "^1.0.1",
     "react": "^18.3.1",
     "react-alice-carousel": "^2.9.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^7.0.1"
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.0.1",
+    "react-toastify": "^10.0.6",
+    "redux": "^5.0.1",
+    "redux-thunk": "^3.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
