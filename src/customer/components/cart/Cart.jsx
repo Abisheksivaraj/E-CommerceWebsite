@@ -1,27 +1,33 @@
 import React from "react";
 import CartItem from "./CartItem";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getCart } from "../../../State/Cart/Action";
+import { store } from "../../../State/Store";
 
 const Cart = () => {
+  const { cart } = useSelector((store) => store);
 
+  const navigate = useNavigate();
+  const handleBuy = () => {
+    navigate("/address?step=2");
+  };
 
-const navigate = useNavigate()
-const handleBuy=()=>{
-  // alert("You have successfully bought the product");
-  navigate("/address?step=2")
-}
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCart());
+  }, [cart.updateCartItem, cart.deleteCartItem]);
 
   return (
     <div className="min-h-screen bg-gray-100 py-8">
       <div className="container mx-auto lg:grid lg:grid-cols-3 lg:px-16 relative">
-        {/* Cart Items Section */}
         <div className="col-span-2 bg-white p-6 rounded-lg shadow-md grid gap-4">
-          {[1, 1, 1, 1].map((item, index) => (
-            <CartItem key={index} />
+          {cart.cart?.CartItem.map((item, index) => (
+            <CartItem key={index} item={item} />
           ))}
         </div>
 
-        {/* Price Details Section */}
         <div className="px-5 sticky top-0 h-full mt-5 lg:mt-0">
           <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
             <p className="uppercase font-bold text-gray-600 pb-4">
@@ -30,16 +36,17 @@ const handleBuy=()=>{
             <hr className="border-t border-gray-200 mb-4" />
 
             <div className="space-y-4 font-semibold text-gray-700">
-              {/* Price Details */}
               <div className="flex justify-between items-center">
                 <span>Price</span>
-                <span className="font-semibold text-lg">₹1000</span>
+                <span className="font-semibold text-lg">
+                  ₹{cart.cart?.totalPrice}
+                </span>
               </div>
 
               <div className="flex justify-between items-center">
                 <span>Discount</span>
                 <span className="font-semibold text-lg text-green-500">
-                  -₹100
+                  -₹₹{cart.cart?.totalDiscount}
                 </span>
               </div>
 
@@ -55,11 +62,16 @@ const handleBuy=()=>{
               {/* Total Amount */}
               <div className="flex justify-between items-center text-xl">
                 <span className="font-bold">Total Amount</span>
-                <span className="font-bold text-2xl text-blue-600">₹950</span>
+                <span className="font-bold text-2xl text-blue-600">
+                  ₹{cart.cart?.totalDiscountedPrice}
+                </span>
               </div>
 
               {/* Checkout Button */}
-              <button onClick={handleBuy} className="w-full mt-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400">
+              <button
+                onClick={handleBuy}
+                className="w-full mt-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              >
                 Proceed To Buy
               </button>
             </div>

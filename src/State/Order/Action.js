@@ -5,9 +5,9 @@ export const createOrder = (reqData) => async (dispatch) => {
   console.log("req data", reqData);
   dispatch({ type: CREATE_ORDER_REQUEST });
   try {
-    const { data } = await api.post(`/newOrder/`, reqData.address);
-    if (data.id) {
-      reqData.navigate({ search: `step=3&order_id=${data.id}` });
+    const { data } = await api.post(`/newOrder/`, reqData.formData);
+    if (data._id) {
+      reqData.navigate({ search: `step=3&order_id=${data._id}` });
     }
     console.log("created Order", data);
     dispatch({

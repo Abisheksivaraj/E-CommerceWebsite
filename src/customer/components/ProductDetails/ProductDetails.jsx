@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { Radio, RadioGroup } from "@headlessui/react";
 import { LinearProgress, Rating } from "@mui/material";
@@ -7,7 +7,11 @@ import ProductReview from "./productReview";
 import Box from "@mui/material/Box";
 import HomeSectionCard from "../../Pages/Homepage/HomeSectionCard";
 import { Mens_Kurta } from "../../../Data/HomePage_Datas/Mens_Kurta";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { findProductsById } from "../../../State/Product/Action";
+import { store } from "../../../State/Store";
+import { addItemToCart } from "../../../State/Cart/Action";
 const product = {
   name: "Basic Tee 6-Pack",
   price: "$192",
@@ -65,13 +69,26 @@ function classNames(...classes) {
 
 export default function productDetails() {
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
-  const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
-const navigate = useNavigate()
+  const [selectedSize, setSelectedSize] = useState();
+  const navigate = useNavigate();
+  const params = useParams();
+  const dispatch = useDispatch();
+  const { products } = useSelector((store) => store);
 
-const handleAddToCart=()=>{
-navigate("/cart")
-}
+  const handleAddToCart = () => {
+    const data = { productId: params.productId, size: selectedSize.name };
+    console.log("selected size", data);
 
+    dispatch(addItemToCart(data));
+    navigate("/cart");
+  };
+
+  console.log("paramsData", params);
+
+  useEffect(() => {
+    const data = { productId: params.productId };
+    dispatch(findProductsById(data));
+  }, [params.productId]);
 
   return (
     <div className="bg-white lg:px-20">
@@ -121,7 +138,7 @@ navigate("/cart")
           <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
             {/* First Image */}
             <img
-              alt={product.images[0]?.alt}
+              alt={products.product?.imageUrl}
               src={product.images[0]?.src}
               className="hidden aspect-[3/4] size-full rounded-lg object-cover lg:block"
             />
@@ -152,19 +169,25 @@ navigate("/cart")
           <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
             <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
               <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
-                sdfghjk
+                {products.product?.brand}
               </h1>
-              <h1>dfghuiop</h1>
+              <h1>{products.product?.title}</h1>
             </div>
 
             {/* Options */}
             <div className="mt-4 lg:row-span-3 lg:mt-0 ">
               <h2 className="sr-only">Product information</h2>
               <div className="flex items-center gap-4">
-                <p className="text-3xl font-bold text-gray-900">₹200</p>
+                <p className="text-3xl font-bold text-gray-900">
+                  ₹{products.product?.discountedPrice}
+                </p>
 
-                <p className="line-through opacity-50">₹1000</p>
-                <p className="text-[green] font-medium">33% off</p>
+                <p className="line-through opacity-50">
+                  ₹{products.product?.price}
+                </p>
+                <p className="text-[green] font-medium">
+                  {products.product?.discountPercent}% off
+                </p>
               </div>
 
               {/* Reviews */}
@@ -280,7 +303,8 @@ navigate("/cart")
                   </fieldset>
                 </div>
 
-                <button onClick={handleAddToCart}
+                <button
+                  onClick={handleAddToCart}
                   type="submit"
                   className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >

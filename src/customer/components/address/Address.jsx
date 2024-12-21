@@ -18,10 +18,6 @@ export default function Address() {
   const querySearch = new URLSearchParams(location.search);
   const step = querySearch.get("step");
 
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
@@ -56,13 +52,6 @@ export default function Address() {
               sx={{ mr: 1 }}
             >
               Back
-            </Button>
-            <Button
-              variant="contained"
-              onClick={handleNext}
-              sx={{ ml: "auto" }}
-            >
-              {activeStep === steps.length - 1 ? "Finish" : "Next"}
             </Button>
           </Box>
 

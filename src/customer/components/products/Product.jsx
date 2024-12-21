@@ -23,12 +23,7 @@ import ProductCard from "./ProductCard";
 import { Mens_Kurta } from "../../../Data/HomePage_Datas/Mens_Kurta";
 import { filters, singleFilter } from "./ProductFilter";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
-import {
-  Navigate,
-  useNavigate,
-  useLocation,
-  useParams,
-} from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { findProducts } from "../../../State/Product/Action";
 import { store } from "../../../State/Store";
@@ -59,9 +54,8 @@ export default function product() {
   const pageNumber = searchParams.get("page");
   const discount = searchParams.get("discount");
 
-  const { product } = useSelector((store) => store);
-  console.log("pages",product.products?.totalPages);
-  
+  const { products } = useSelector((store) => store);
+  console.log("pages", product.products?.totalPages);
 
   const handleFilter = (value, sectionId) => {
     const searchParams = new URLSearchParams(location.search);
@@ -103,7 +97,7 @@ export default function product() {
       maxPrice,
       minDiscount: discount || 0,
       sort: sortValue || "price_low",
-      pageNumber: pageNumber - 1,
+      pageNumber: pageNumber,
       pageSize: 10,
       stock: stockValue,
     };
@@ -119,11 +113,11 @@ export default function product() {
     stockValue,
   ]);
 
-  const handlePagiationChange = (value) => {
+  const handlePagiationChange = (event, value) => {
     const searchParams = new URLSearchParams(location.search);
     searchParams.set("page", value);
-    query = searchParams.toString();
-    navigate({ search: `{query}` });
+    const query = searchParams.toString();
+    navigate({ search: `?${query}` });
   };
 
   return (
@@ -397,10 +391,9 @@ export default function product() {
               {/* Product grid */}
               <div className="lg:col-span-3 w-full">
                 <div className="flex flex-wrap justify-center bg-white py-5">
-                  {product.products &&
-                    product.products?.content?.map((item) => (
-                      <ProductCard product={item} />
-                    ))}
+                  {Mens_Kurta.map((item) => (
+                    <ProductCard product={item} />
+                  ))}
                 </div>
               </div>
             </div>
