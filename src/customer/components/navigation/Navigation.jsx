@@ -34,8 +34,6 @@ export default function Navigation() {
   const dispatch = useDispatch();
   const { auth } = useSelector((store) => store);
 
-  
-
   // useEffect(() => {
   //   if (jwt) {
   //     dispatch(getUser(jwt));
@@ -62,7 +60,6 @@ export default function Navigation() {
     close();
   };
 
-
   useEffect(() => {
     if (jwt) {
       dispatch(getUser(jwt));
@@ -81,9 +78,8 @@ export default function Navigation() {
   const handleLogout = () => {
     handleCloseUserMenu();
     dispatch(logout());
+    localStorage.clear();
   };
-
-
 
   // const handleMyOrderClick = () => {
   //   handleCloseUserMenu();

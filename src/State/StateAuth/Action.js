@@ -19,21 +19,21 @@ const registerRequest = () => ({ type: REGISTER_REQUEST });
 const registerSuccess = (user) => ({ type: REGISTER_SUCCESS, payload: user });
 const registerFailure = (error) => ({ type: REGISTER_FAILURE, payload: error });
 
-export const register = (formData) => async (dispatch) => {
+export const register = (userData) => async (dispatch) => {
   dispatch(registerRequest());
 
   try {
-    const response = await axios.post(`${API_URL}/signUp`, formData);
+    const response = await axios.post(`${API_URL}/signUp`, userData);
     const user = response.data;
+    console.log("Register-User", user);
 
     if (user) {
-      localStorage.setItem("jwt", JSON.stringify(user)); // Save JWT token
+      localStorage.setItem("jwt", user.token);
     }
-    console.log("user", user);
-
-    dispatch(registerSuccess(user)); // Pass full user object
+    console.log("register:", user);
+    dispatch(registerSuccess(user.token));
   } catch (error) {
-    dispatch(registerFailure(error.response?.data?.message || error.message)); // Use backend error if available
+    dispatch(registerFailure(error.message));
   }
 };
 
@@ -42,21 +42,20 @@ const loginSuccess = (user) => ({ type: LOGIN_SUCCESS, payload: user });
 
 const loginFailure = (error) => ({ type: LOGIN_FAILURE, payload: error });
 
-export const login = (formData) => async (dispatch) => {
+export const login = (userData) => async (dispatch) => {
   dispatch(loginRequest());
 
   try {
-    const response = await axios.post(`${API_URL}/signIn`, formData);
+    const response = await axios.post(`${API_URL}/signIn`, userData);
     const user = response.data;
-
-    if (user) {
-      localStorage.setItem("jwt", JSON.stringify(user));
-    }
     console.log("user", user);
-
-    dispatch(loginSuccess(user));
+    if (user) {
+      localStorage.setItem("jwt", user.token);
+    }
+    console.log("login:", user);
+    dispatch(loginSuccess(user.token));
   } catch (error) {
-    dispatch(loginFailure(error.response?.data?.message || error.message));
+    dispatch(loginFailure(error.message));
   }
 };
 
@@ -65,17 +64,17 @@ const getUserSuccess = (user) => ({ type: GET_USER_SUCCESS, payload: user });
 
 const getUserFailure = (error) => ({ type: GET_USER_FAILURE, payload: error });
 
-export const getUser = () => async (dispatch) => {
+export const getUser = (jwt) => async (dispatch) => {
   dispatch(getUserRequest());
 
   try {
     const response = await axios.get(`${API_URL}/profile`, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${jwt}`,
       },
     });
     const user = response.data;
-    console.log("user", user);
+    console.log("user-Profile:", user);
 
     dispatch(getUserSuccess(user));
   } catch (error) {

@@ -15,14 +15,14 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 500,
   bgcolor: "background.paper",
-  outline:"none",
-  
+  outline: "none",
+
   boxShadow: 24,
   p: 4,
 };
 
-export default function AuthModal({handleClose,open}) {
-  const location = useLocation()
+const AuthModal = ({ handleClose, open }) => {
+  const location = useLocation();
   return (
     <div>
       <Modal
@@ -32,10 +32,11 @@ export default function AuthModal({handleClose,open}) {
         aria-describedby="modal-modal-description"
       >
         <Box className="w-[10rem]" sx={style}>
-          
-          {location.pathname==="/login"?<Login/>:<Register/>}
+          {location.pathname === "/login" ? <Login /> : <Register />}
         </Box>
       </Modal>
     </div>
   );
-}
+};
+
+export default AuthModal;

@@ -1,150 +1,104 @@
-import React, { useEffect, useState } from "react";
-import { Grid, TextField, Button, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Button, Grid, TextField } from "@mui/material";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { register, getUser } from "../../State/StateAuth/Action";
+import { useNavigate } from "react-router-dom";
+import { getUser, register } from "../../State/StateAuth/Action";
 
 const Register = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const jwt = localStorage.getItem("jwt");
-
-  const { auth } = useSelector((store) => store);
-  const [error, setError] = useState(""); // Define error state
-  const [loading, setLoading] = useState(false); // Define loading state
+  const { auth } = useSelector((store) => store.auth);
 
   useEffect(() => {
     if (jwt) {
-      dispatch(getUser(jwt));
+      dispatch(getUser());
     }
-  }, [jwt, auth.jwt]);
+  }, [jwt, auth?.jwt]);
 
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    mobile: "",
-  });
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-  };
+    const data = new FormData(event.currentTarget);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const { firstName, lastName, email, password } = formData;
-    if (!firstName || !lastName || !email || !password) {
-      setError("All fields are required");
-    } else {
-      setLoading(true);
-      try {
-        dispatch(register(formData));
-        navigate("/login"); // Redirect to login page on successful registration
-      } catch (err) {
-        setError("Registration failed. Please try again."); // Handle registration error
-      } finally {
-        setLoading(false);
-      }
-    }
+    const userData = {
+      firstName: data.get("firstName"),
+      lastName: data.get("lastName"),
+      email: data.get("email"),
+      password: data.get("password"),
+    };
+    dispatch(register(userData));
+    console.log("Register-Data:", userData);
   };
 
   return (
-    <div className="max-w-md mx-auto p-4">
-      <Typography variant="h5" align="center" gutterBottom>
-        Register
-      </Typography>
+    <div className="rounded-lg p-4 shadow-2xl">
+      <p className="text-center text-4xl font-bold  mb-8">Register</p>
       <form onSubmit={handleSubmit}>
-        <Grid container spacing={2}>
+        <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
             <TextField
-              label="First Name"
-              variant="outlined"
-              fullWidth
+              required
+              id="firstName"
               name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-              required
+              label="First Name"
+              fullWidth
+              autoComplete="given-name"
+              variant="outlined"
+              className="bg-white rounded-lg"
             />
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
-              label="Last Name"
-              variant="outlined"
-              fullWidth
+              required
+              id="lastName"
               name="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
-              required
+              label="Last Name"
+              fullWidth
+              autoComplete="family-name"
+              variant="outlined"
+              className="bg-white rounded-lg"
             />
           </Grid>
           <Grid item xs={12}>
             <TextField
-              label="Email"
-              variant="outlined"
-              fullWidth
+              required
+              id="email"
               name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
+              label="E-mail"
+              fullWidth
+              autoComplete="email"
+              variant="outlined"
+              className="bg-white rounded-lg"
             />
           </Grid>
           <Grid item xs={12}>
             <TextField
-              label="Password"
-              variant="outlined"
-              fullWidth
-              name="password"
-              type="password"
-              value={formData.password}
-              onChange={handleChange}
               required
+              id="password"
+              name="password"
+              label="Password"
+              type="password"
+              fullWidth
+              autoComplete="current-password"
+              variant="outlined"
+              className="bg-white rounded-lg"
             />
           </Grid>
-
-          {/* Show error message */}
-          {error && (
-            <Grid item xs={12}>
-              <Typography color="error" variant="body2" align="center">
-                {error}
-              </Typography>
-            </Grid>
-          )}
-
-          {/* Submit button */}
-          <Grid item xs={12}>
+          <Grid item xs={12} className="text-center">
             <Button
               type="submit"
-              variant="contained"
-              fullWidth
-              sx={{
-                backgroundColor: "#190758",
-                "&:hover": {
-                  backgroundColor: "#150642",
-                },
-              }}
-              disabled={loading} // Disable button while loading
+              className="px-8 py-3 rounded-full shadow-xl bg-blue-700 hover:shadow-2xl active:translate-y-1 
+              text-[navy] transition-all duration-300"
             >
-              {loading ? "Registering..." : "Register"}
+              Register
             </Button>
           </Grid>
         </Grid>
       </form>
       <div>
-        <Typography variant="body2" align="center" className="mt-4">
-          Already a User?{" "}
-          <Button
-            onClick={() => navigate("/login")}
-            sx={{ color: "#190758", textTransform: "none" }}
-          >
-            Login
-          </Button>
-        </Typography>
+        Already have an account?{" "}
+        <Button onClick={() => navigate("/login")}>Login</Button>
       </div>
     </div>
   );

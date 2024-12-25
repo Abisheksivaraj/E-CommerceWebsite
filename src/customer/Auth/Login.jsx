@@ -1,85 +1,70 @@
-import React, { useState } from "react";
-import { Grid, TextField, Button, Typography } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { Button, Grid, TextField } from "@mui/material";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { login } from "../../State/StateAuth/Action";
 
 const Login = () => {
-  const dispatch = useDispatch();
-
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-  const [error, setError] = useState("");
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const { email, password } = formData;
-    if (!email || !password) {
-      setError("All fields are required");
-    } else {
-      setError("");
-      dispatch(login(formData));
-      console.log("Registering with:", formData);
-    }
-  };
-
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  // const jwt = localStorage.getItem("jwt");
+  // const { auth } = useSelector((store) => store.auth);
 
+  // useEffect(() => {
+  //   if (jwt) {
+  //     dispatch(getUser());
+  //   }
+  // }, [jwt, auth?.jwt]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const data = new FormData(event.currentTarget);
+
+    const userData = {
+      email: data.get("email"),
+      password: data.get("password"),
+    };
+    dispatch(login(userData));
+
+    console.log("Login-Data:", userData);
+  };
   return (
-    <div className="max-w-md mx-auto p-4">
-      <Typography variant="h5" align="center" gutterBottom>
-        Login
-      </Typography>
+    <div className="rounded-lg p-4 shadow-2xl">
+      <p className="text-center text-4xl font-bold  mb-8">Login</p>
       <form onSubmit={handleSubmit}>
-        <Grid container spacing={2}>
+        <Grid container spacing={3}>
           <Grid item xs={12}>
             <TextField
-              label="Email"
-              variant="outlined"
-              fullWidth
+              required
+              id="email"
               name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
+              label="E-mail"
+              fullWidth
+              autoComplete="email"
+              variant="outlined"
+              className="bg-white rounded-lg"
             />
           </Grid>
           <Grid item xs={12}>
             <TextField
-              label="Password"
-              variant="outlined"
-              fullWidth
-              name="password"
-              type="password"
-              value={formData.password}
-              onChange={handleChange}
               required
+              id="password"
+              name="password"
+              label="Password"
+              type="password"
+              fullWidth
+              autoComplete="current-password"
+              variant="outlined"
+              className="bg-white rounded-lg"
             />
           </Grid>
-
-          {error && (
-            <Grid item xs={12}>
-              <Typography color="error" variant="body2" align="center">
-                {error}
-              </Typography>
-            </Grid>
-          )}
-          <Grid item xs={12}>
+          <Grid item xs={12} className="text-center">
             <Button
-              className="bg-[#190758]"
               type="submit"
               variant="contained"
-              fullWidth
+              className="px-8 py-3 rounded-full shadow-xl bg-blue-700 hover:shadow-2xl active:translate-y-1 
+              text-[navy] transition-all duration-300"
             >
               Login
             </Button>
@@ -87,15 +72,8 @@ const Login = () => {
         </Grid>
       </form>
       <div>
-        <p className="text-center mt-4">
-          Already an User ?{" "}
-          <Button
-            onClick={() => navigate("/register")}
-            className="text-[#190758] cursor-pointer"
-          >
-            Register
-          </Button>
-        </p>
+        Don't have an account?{" "}
+        <Button onClick={() => navigate("/register")}>Register</Button>
       </div>
     </div>
   );
