@@ -79,6 +79,7 @@ export default function Navigation() {
     handleCloseUserMenu();
     dispatch(logout());
     localStorage.clear();
+    navigate('/')
   };
 
   // const handleMyOrderClick = () => {

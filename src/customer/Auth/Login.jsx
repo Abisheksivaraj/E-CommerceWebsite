@@ -7,14 +7,6 @@ import { login } from "../../State/StateAuth/Action";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // const jwt = localStorage.getItem("jwt");
-  // const { auth } = useSelector((store) => store.auth);
-
-  // useEffect(() => {
-  //   if (jwt) {
-  //     dispatch(getUser());
-  //   }
-  // }, [jwt, auth?.jwt]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,6 +20,7 @@ const Login = () => {
     dispatch(login(userData));
 
     console.log("Login-Data:", userData);
+    navigate("/"); 
   };
   return (
     <div className="rounded-lg p-4 shadow-2xl">

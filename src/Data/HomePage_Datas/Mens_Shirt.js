@@ -7,7 +7,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 299,
     price: 1299,
-    discountPersent: 76,
+    discountpercent: 76,
     size: [
       {
         name: "S",
@@ -23,9 +23,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -37,7 +37,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 299,
     price: 899,
-    discountPersent: 66,
+    discountpercent: 66,
     size: [
       {
         name: "S",
@@ -53,9 +53,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -67,7 +67,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 299,
     price: 1299,
-    discountPersent: 76,
+    discountpercent: 76,
     size: [
       {
         name: "S",
@@ -83,9 +83,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -97,7 +97,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 879,
     price: 1599,
-    discountPersent: 45,
+    discountpercent: 45,
     size: [
       {
         name: "S",
@@ -113,9 +113,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -127,7 +127,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 419,
     price: 1648,
-    discountPersent: 74,
+    discountpercent: 74,
     size: [
       {
         name: "S",
@@ -143,9 +143,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -157,7 +157,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 399,
     price: 1299,
-    discountPersent: 69,
+    discountpercent: 69,
     size: [
       {
         name: "S",
@@ -173,9 +173,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -187,7 +187,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 379,
     price: 1849,
-    discountPersent: 79,
+    discountpercent: 79,
     size: [
       {
         name: "S",
@@ -203,9 +203,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -217,7 +217,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 498,
     price: 999,
-    discountPersent: 50,
+    discountpercent: 50,
     size: [
       {
         name: "S",
@@ -233,9 +233,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -247,7 +247,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 499,
     price: 799,
-    discountPersent: 50,
+    discountpercent: 50,
     size: [
       {
         name: "S",
@@ -263,9 +263,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -277,7 +277,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 499,
     price: 1799,
-    discountPersent: 72,
+    discountpercent: 72,
     size: [
       {
         name: "S",
@@ -293,9 +293,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -307,7 +307,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 409,
     price: 1599,
-    discountPersent: 74,
+    discountpercent: 74,
     size: [
       {
         name: "S",
@@ -323,9 +323,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -337,7 +337,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 449,
     price: 999,
-    discountPersent: 55,
+    discountpercent: 55,
     size: [
       {
         name: "S",
@@ -353,9 +353,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -367,7 +367,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 949,
     price: 2499,
-    discountPersent: 62,
+    discountpercent: 62,
     size: [
       {
         name: "S",
@@ -383,9 +383,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -397,7 +397,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 899,
     price: 1799,
-    discountPersent: 50,
+    discountpercent: 50,
     size: [
       {
         name: "S",
@@ -413,9 +413,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -427,7 +427,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 1099,
     price: 2799,
-    discountPersent: 62,
+    discountpercent: 62,
     size: [
       {
         name: "S",
@@ -443,9 +443,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -457,7 +457,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 911,
     price: 2399,
-    discountPersent: 62,
+    discountpercent: 62,
     size: [
       {
         name: "S",
@@ -473,9 +473,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -487,7 +487,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 499,
     price: 1799,
-    discountPersent: 72,
+    discountpercent: 72,
     size: [
       {
         name: "S",
@@ -503,9 +503,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -517,7 +517,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 499,
     price: 960,
-    discountPersent: 16,
+    discountpercent: 16,
     size: [
       {
         name: "S",
@@ -533,9 +533,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -547,7 +547,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 719,
     price: 1199,
-    discountPersent: 40,
+    discountpercent: 40,
     size: [
       {
         name: "S",
@@ -563,9 +563,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -577,7 +577,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 899,
     price: 1799,
-    discountPersent: 50,
+    discountpercent: 50,
     size: [
       {
         name: "S",
@@ -593,9 +593,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -607,7 +607,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 499,
     price: 1499,
-    discountPersent: 66,
+    discountpercent: 66,
     size: [
       {
         name: "S",
@@ -623,9 +623,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -637,7 +637,7 @@ export const Shirts = [
     color: "whitePack of 2",
     discountedPrice: 799,
     price: 1499,
-    discountPersent: 46,
+    discountpercent: 46,
     size: [
       {
         name: "S",
@@ -653,9 +653,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -667,7 +667,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 419,
     price: 1648,
-    discountPersent: 74,
+    discountpercent: 74,
     size: [
       {
         name: "S",
@@ -683,9 +683,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -697,7 +697,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 949,
     price: 2499,
-    discountPersent: 62,
+    discountpercent: 62,
     size: [
       {
         name: "S",
@@ -713,9 +713,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -727,7 +727,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 799,
     price: 1599,
-    discountPersent: 50,
+    discountpercent: 50,
     size: [
       {
         name: "S",
@@ -743,9 +743,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -757,7 +757,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 149,
     price: 2599,
-    discountPersent: 45,
+    discountpercent: 45,
     size: [
       {
         name: "S",
@@ -773,9 +773,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -787,7 +787,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 649,
     price: 1499,
-    discountPersent: 56,
+    discountpercent: 56,
     size: [
       {
         name: "S",
@@ -803,9 +803,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -817,7 +817,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 499,
     price: 990,
-    discountPersent: 50,
+    discountpercent: 50,
     size: [
       {
         name: "S",
@@ -833,9 +833,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -847,7 +847,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 959,
     price: 1599,
-    discountPersent: 40,
+    discountpercent: 40,
     size: [
       {
         name: "S",
@@ -863,9 +863,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -877,7 +877,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 399,
     price: 1599,
-    discountPersent: 75,
+    discountpercent: 75,
     size: [
       {
         name: "S",
@@ -893,9 +893,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -907,7 +907,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 599,
     price: 899,
-    discountPersent: 40,
+    discountpercent: 40,
     size: [
       {
         name: "S",
@@ -923,9 +923,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -937,7 +937,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 620,
     price: 699,
-    discountPersent: 37,
+    discountpercent: 37,
     size: [
       {
         name: "S",
@@ -953,9 +953,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -967,7 +967,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 751,
     price: 1599,
-    discountPersent: 53,
+    discountpercent: 53,
     size: [
       {
         name: "S",
@@ -983,9 +983,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -997,7 +997,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 919,
     price: 2299,
-    discountPersent: 60,
+    discountpercent: 60,
     size: [
       {
         name: "S",
@@ -1013,9 +1013,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -1027,7 +1027,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 719,
     price: 1199,
-    discountPersent: 40,
+    discountpercent: 40,
     size: [
       {
         name: "S",
@@ -1043,9 +1043,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -1057,7 +1057,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 4499,
     price: 5999,
-    discountPersent: 25,
+    discountpercent: 25,
     size: [
       {
         name: "S",
@@ -1073,9 +1073,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -1087,7 +1087,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 499,
     price: 1499,
-    discountPersent: 66,
+    discountpercent: 66,
     size: [
       {
         name: "S",
@@ -1103,9 +1103,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -1117,7 +1117,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 420,
     price: 999,
-    discountPersent: 57,
+    discountpercent: 57,
     size: [
       {
         name: "S",
@@ -1133,9 +1133,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -1147,7 +1147,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 1099,
     price: 1999,
-    discountPersent: 47,
+    discountpercent: 47,
     size: [
       {
         name: "S",
@@ -1163,9 +1163,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },
@@ -1177,7 +1177,7 @@ export const Shirts = [
     color: "white",
     discountedPrice: 839,
     price: 1399,
-    discountPersent: 40,
+    discountpercent: 40,
     size: [
       {
         name: "S",
@@ -1193,9 +1193,9 @@ export const Shirts = [
       },
     ],
     quantity: 100,
-    topLavelCategory: "Men",
-    secondLavelCategory: "Clothing",
-    thirdLavelCategory: "shirt",
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "shirt",
     description:
       "A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.",
   },

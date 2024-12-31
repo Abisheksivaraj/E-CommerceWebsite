@@ -43,7 +43,7 @@ export const findProductsById = (reqData) => async (dispatch) => {
   console.log("productData",productId);
   
   try {
-    const { data } = await api.get(`/id/${productId}`);
+    const { data } = await api.get(`/product/id/${productId}`);
     console.log("dataaa",data);
     
     dispatch({ type: FIND_PRODUCT_BY_ID_SUCCESS, payload: data });

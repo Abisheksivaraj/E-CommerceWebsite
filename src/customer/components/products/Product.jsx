@@ -98,7 +98,7 @@ export default function product() {
       minDiscount: discount || 0,
       sort: sortValue || "price_low",
       pageNumber: pageNumber,
-      pageSize: 10,
+      pageSize: 6,
       stock: stockValue,
     };
     dispatch(findProducts(data));
@@ -113,7 +113,7 @@ export default function product() {
     stockValue,
   ]);
 
-  const handlePagiationChange = (event, value) => {
+  const handlePaginationChange = (event, value) => {
     const searchParams = new URLSearchParams(location.search);
     searchParams.set("page", value);
     const query = searchParams.toString();
@@ -391,8 +391,8 @@ export default function product() {
               {/* Product grid */}
               <div className="lg:col-span-3 w-full">
                 <div className="flex flex-wrap justify-center bg-white py-5">
-                  {product.products &&
-                    product.products?.content?.map((item) => (
+                  {products.products &&
+                    products.products?.content?.map((item) => (
                       <ProductCard product={item} />
                     ))}
                 </div>
@@ -404,7 +404,7 @@ export default function product() {
               <Pagination
                 count={product.products?.totalPages}
                 color="primary"
-                onChange={handlePagiationChange}
+                onChange={handlePaginationChange}
               />
             </div>
           </section>

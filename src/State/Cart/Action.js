@@ -17,10 +17,10 @@ import {
 export const getCart = () => async (dispatch) => {
   dispatch({ type: GET_CART_REQUEST });
   try {
-    const { data } = await api.get(`/getCart`, reqData);
+    const { data } = await api.get(`/getCart`);
+
     dispatch({ type: GET_CART_SUCCESS, payload: data });
-    console.log("get_Cart_Data:",data);
-    
+    console.log("get_Cart_Data:", data);
   } catch (error) {
     dispatch({ type: GET_CART_FAILURE, payload: error.message });
   }
@@ -44,7 +44,7 @@ export const removeCartItem = (cartItemId) => async (dispatch) => {
       `/removeCart/${cartItemId}`,
       reqData.data
     );
-    dispatch({ type: REMOVE_CART_ITEM_SUCCESS, payload:cartItemId});
+    dispatch({ type: REMOVE_CART_ITEM_SUCCESS, payload: cartItemId });
   } catch (error) {
     dispatch({ type: REMOVE_CART_ITEM_FAILURE, payload: error.message });
   }

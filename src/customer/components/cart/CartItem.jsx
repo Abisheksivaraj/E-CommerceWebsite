@@ -26,7 +26,7 @@ const CartItem = ({ item }) => {
         <div className="w-[5rem] h-[5rem] lg:w-[9rem] lg:h-[9rem] overflow-hidden rounded-lg shadow-md">
           <img
             className="w-full h-full object-cover object-top"
-            src={item.product.imageUrl}
+            src={item.product.image}
             alt="Product"
           />
         </div>
@@ -65,7 +65,7 @@ const CartItem = ({ item }) => {
           </IconButton>
 
           <span className="py-1 px-5 bg-gray-100 rounded-full text-gray-800 font-semibold">
-           {item.quantity}
+            {item.quantity}
           </span>
 
           <IconButton

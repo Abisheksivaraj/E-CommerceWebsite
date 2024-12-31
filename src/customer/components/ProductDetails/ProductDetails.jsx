@@ -12,6 +12,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { findProductsById } from "../../../State/Product/Action";
 import { store } from "../../../State/Store";
 import { addItemToCart } from "../../../State/Cart/Action";
+
+
 const product = {
   name: "Basic Tee 6-Pack",
   price: "$192",
@@ -68,8 +70,9 @@ function classNames(...classes) {
 }
 
 export default function productDetails() {
-  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
-  const [selectedSize, setSelectedSize] = useState();
+  const [selectedColor, setSelectedColor] = useState("");
+
+  const [selectedSize, setSelectedSize] = useState("");
   const navigate = useNavigate();
   const params = useParams();
   const dispatch = useDispatch();
@@ -83,7 +86,7 @@ export default function productDetails() {
     navigate("/cart");
   };
 
-  console.log("paramsData", params);
+  // console.log("paramsData", params);
 
   useEffect(() => {
     const data = { productId: params.productId };
@@ -138,8 +141,8 @@ export default function productDetails() {
           <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
             {/* First Image */}
             <img
-              alt={products.product?.imageUrl}
-              src={product.images[0]?.src}
+              src={products.product?.image}
+              alt={product.images[0]?.src}
               className="hidden aspect-[3/4] size-full rounded-lg object-cover lg:block"
             />
 
