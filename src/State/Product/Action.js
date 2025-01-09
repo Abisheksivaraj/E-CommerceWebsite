@@ -1,5 +1,11 @@
 import { api } from "../../config/apiConfig";
 import {
+  CREATE_PRODUCT_FAILURE,
+  CREATE_PRODUCT_REQUEST,
+  CREATE_PRODUCT_SUCCESS,
+  DELETE_PRODUCT_FAILURE,
+  DELETE_PRODUCT_REQUEST,
+  DELETE_PRODUCT_SUCCESS,
   FIND_PRODUCT_BY_ID_FAILURE,
   FIND_PRODUCT_BY_ID_REQUEST,
   FIND_PRODUCT_BY_ID_SUCCESS,
@@ -26,8 +32,8 @@ export const findProducts = (reqData) => async (dispatch) => {
     const { data } = await api.get(
       `/allProducts?color=${colors}&size=${sizes}&minPrice=${minPrice}&maxPrice=${maxPrice}&minDiscount=&${minDiscount}&category=${category}&stock=${stock}&sort=${sort}&pageNumber=${pageNumber}&pageSize=${pageSize}`
     );
-    console.log("product_data",data);
-    
+    console.log("product_data", data);
+
     dispatch({ type: FIND_PRODUCTS_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -40,16 +46,50 @@ export const findProducts = (reqData) => async (dispatch) => {
 export const findProductsById = (reqData) => async (dispatch) => {
   dispatch({ type: FIND_PRODUCT_BY_ID_REQUEST });
   const { productId } = reqData;
-  console.log("productData",productId);
-  
+  console.log("productData", productId);
+
   try {
     const { data } = await api.get(`/product/id/${productId}`);
-    console.log("dataaa",data);
-    
+    console.log("dataaa", data);
+
     dispatch({ type: FIND_PRODUCT_BY_ID_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
       type: FIND_PRODUCT_BY_ID_FAILURE,
+      payload: error.message,
+    });
+  }
+};
+
+export const createProduct = (product) => async (dispatch) => {
+  try {
+    dispatch({ type: CREATE_PRODUCT_REQUEST });
+    const { data } = await api.post("/newProduct", product.data);
+    dispatch({
+      type: CREATE_PRODUCT_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: CREATE_PRODUCT_FAILURE,
+      payload: error.message,
+    });
+  }
+};
+
+export const deleteProduct = (productId) => async (dispatch) => {
+  try {
+    dispatch({ type: DELETE_PRODUCT_REQUEST });
+    const { data } = await api.delete(`/deleteProduct/${productId}/delete`);
+    console.log("deleteProduct", data);
+
+    dispatch({
+      type: DELETE_PRODUCT_SUCCESS,
+      payload: productId,
+    });
+  } catch (error) {
+    dispatch({
+      type: DELETE_PRODUCT_FAILURE,
       payload: error.message,
     });
   }

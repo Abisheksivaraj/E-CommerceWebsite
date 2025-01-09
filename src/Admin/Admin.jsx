@@ -89,31 +89,23 @@ const Admin = () => {
 
   return (
     <div>
-      <Box sx={{ display: `${isLargeScreen}?"flex":"block` }}>
-        <Drawer
-          variant="permanent"
-          sx={{
-            height: "100vh",
+      <div className="flex h-[100vh] ">
+        <CssBaseline>
+          <div className="w-[15%]  border-2 border-r-gray-500 h-full">{drawer}</div>
 
-            width: 240,
-            flexShrink: 0,
-          }}
-        >
-          {drawer}
-        </Drawer>
+          <div className="w-[68%] ">
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
 
-        <Box>
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
+              <Route path="/product/create" element={<CreateProducts />} />
 
-            <Route path="/product/create" element={<CreateProducts />} />
-
-            <Route path="/orders" element={<OrdersTable />} />
-            <Route path="/customers" element={<CustomersTable/>} />
-            <Route path="/products" element={<ProductsTable />} />
-          </Routes>
-        </Box>
-      </Box>
+              <Route path="/orders" element={<OrdersTable />} />
+              <Route path="/customers" element={<CustomersTable />} />
+              <Route path="/products" element={<ProductsTable />} />
+            </Routes>
+          </div>
+        </CssBaseline>
+      </div>
     </div>
   );
 };
