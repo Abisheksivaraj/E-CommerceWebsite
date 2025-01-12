@@ -19,7 +19,7 @@ const TrophyImg = styled("img")({
 const Achievements = () => {
   return (
     <div>
-      <Card sx={{ position: "relative", width: "16rem", bgcolor: "#242b2e" }}>
+      <Card sx={{ position: "relative", width: "21rem", bgcolor: "#242b2e" }}>
         <CardContent>
           <Typography
             variant="h6"

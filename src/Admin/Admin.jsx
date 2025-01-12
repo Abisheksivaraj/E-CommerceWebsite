@@ -7,39 +7,54 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Toolbar,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
 import React, { useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import CategoryIcon from "@mui/icons-material/Category";
 import CreateProducts from "./Components/CreateProducts";
 import OrdersTable from "./Components/OrdersTable";
 import CustomersTable from "./Components/CustomersTable";
 import ProductsTable from "./Components/ProductsTable";
 import Dashboard from "./Components/Dashboard";
-
+import ProductionQuantityLimits from "@mui/icons-material/ProductionQuantityLimits";
+import People from "@mui/icons-material/People";
+import Receipt from "@mui/icons-material/Receipt";
+import AddBox from "@mui/icons-material/AddBox";
+import Logout from "@mui/icons-material/Logout";
 const menu = [
-  { name: "Dashboard", path: "/admin", icon: <DashboardIcon /> },
-  { name: "Products", path: "/admin/products", icon: <DashboardIcon /> },
-  { name: "Customers", path: "/admin/customer", icon: <DashboardIcon /> },
-  { name: "Orders", path: "/admin/orders", icon: <DashboardIcon /> },
+  {
+    name: "Dashboard",
+    path: "/admin",
+    icon: <DashboardIcon style={{ color: "white" }} />,
+  },
+  {
+    name: "Products",
+    path: "/admin/products",
+    icon: <ProductionQuantityLimits style={{ color: "white" }} />,
+  },
+  {
+    name: "Customers",
+    path: "/admin/customer",
+    icon: <People style={{ color: "white" }} />,
+  },
+  {
+    name: "Orders",
+    path: "/admin/orders",
+    icon: <Receipt style={{ color: "white" }} />,
+  },
   {
     name: "AddProducts",
     path: "/admin/product/create",
-    icon: <DashboardIcon />,
+    icon: <AddBox style={{ color: "white" }} />,
   },
-  // {
-  //   name: "Profile",
-  //   path: "/admin/profile",
-  //   icon: <AccountCircleIcon />,
-  // },
 ];
 
 const Admin = () => {
+  const handleLogout = () => {
+    navigate("/");
+  };
   const theme = useTheme();
   const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
   const [sideBarVisible, setSideBarVisible] = useState(false);
@@ -48,16 +63,17 @@ const Admin = () => {
   const drawer = (
     <Box
       sx={{
+        color: "white",
+        bgcolor: "#242b2e",
         overflow: "auto",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        // border:'1px solid black',
+
         height: "100%",
       }}
     >
       <>
-        {/* {isLargeScreen && <Toolbar />} */}
         <List>
           {menu.map((item, index) => (
             <ListItem
@@ -76,11 +92,11 @@ const Admin = () => {
 
       <List>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton onClick={handleLogout}>
             <ListItemIcon>
-              <AccountCircleIcon />
+              <Logout style={{ color: "white" }} />
             </ListItemIcon>
-            <ListItemText>Account</ListItemText>
+            <ListItemText className="text-white">Logout</ListItemText>
           </ListItemButton>
         </ListItem>
       </List>
@@ -88,12 +104,14 @@ const Admin = () => {
   );
 
   return (
-    <div>
-      <div className="flex h-[100vh] ">
+    <div className="">
+      <div className="relative flex h-[100vh]  ">
         <CssBaseline>
-          <div className="w-[15%]  border-2 border-r-gray-500 h-full">{drawer}</div>
+          <div className="w-[15%]  border-2 border-r-gray-500 h-full fixed top-0">
+            {drawer}
+          </div>
 
-          <div className="w-[68%] ">
+          <div className="w-[85%] ml-[16%]">
             <Routes>
               <Route path="/" element={<Dashboard />} />
 

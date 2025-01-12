@@ -74,7 +74,7 @@ const renderState = () => {
 const MonthlyOverview = () => {
   return (
     <div>
-      <Card sx={{ bgcolor: "#242b2e", color: "white" }}>
+      <Card sx={{ bgcolor: "#242b2e",width: "43rem", color: "white" }}>
         <CardHeader
           title="Monthly Overview"
           action={

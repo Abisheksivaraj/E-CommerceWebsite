@@ -64,7 +64,7 @@ export const findProductsById = (reqData) => async (dispatch) => {
 export const createProduct = (product) => async (dispatch) => {
   try {
     dispatch({ type: CREATE_PRODUCT_REQUEST });
-    const { data } = await api.post("/newProduct", product.data);
+    const { data } = await api.post("/newProduct", product);
     dispatch({
       type: CREATE_PRODUCT_SUCCESS,
       payload: data,

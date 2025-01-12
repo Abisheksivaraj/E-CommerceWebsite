@@ -7,13 +7,13 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 
 const HomeSection = ({data , sectionName}) => {
   const responsive = {
-    0: { items: 1 }, // 1 item for small screens
-    640: { items: 2 }, // 2 items for screens >= 640px
-    1024: { items: 3 }, // 3 items for screens >= 1024px
-    1280: { items: 4 }, // 4 items for large screens
+    0: { items: 1 }, 
+    640: { items: 2 }, 
+    1024: { items: 3 }, 
+    1280: { items: 4 },
   };
 
-  const carouselRef = useRef(null); // Reference to AliceCarousel
+  const carouselRef = useRef(null); 
 
   const [activeIndex, setActiveIndex] = useState(0);
 
