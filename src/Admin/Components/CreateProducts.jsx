@@ -86,7 +86,7 @@ const CreateProducts = () => {
           Add New Product
         </Typography>
 
-        <Box component={Paper} elevation={3} p={4} m={4} borderRadius={2}>
+        <Box component={Paper} elevation={3} p={4} m={4} borderRadius={2} >
           <form onSubmit={handleSubmit}>
             <Grid container spacing={3}>
               <Grid item xs={12}>

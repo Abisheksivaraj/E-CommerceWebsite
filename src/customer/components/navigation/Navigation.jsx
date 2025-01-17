@@ -1,21 +1,22 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
   MagnifyingGlassIcon,
-  ShoppingBagIcon,
+  ShoppingCartIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import logo from "../../../assets/logo.png";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import {useLocation, useNavigate } from "react-router-dom";
 import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import { navigation } from "../navigation/NavigationData";
 import AuthModal from "../../Auth/AuthModal";
 import { useDispatch, useSelector } from "react-redux";
-import { deepPurple } from "@mui/material/colors";
+
 import { getUser, logout } from "../../../State/StateAuth/Action";
 // import { getCart } from "../../../Redux/Customers/Cart/Action";
-import TextField from "@mui/material/TextField";
+
+// import Cart from "../cart/Cart";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -24,7 +25,6 @@ function classNames(...classes) {
 export default function Navigation() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-
   const [openAuthModal, setOpenAuthModal] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const openUserMenu = Boolean(anchorEl);
@@ -32,7 +32,7 @@ export default function Navigation() {
   const location = useLocation();
 
   const dispatch = useDispatch();
-  const { auth } = useSelector((store) => store);
+  const { auth , cart } = useSelector((store) => store);
 
   // useEffect(() => {
   //   if (jwt) {
@@ -79,8 +79,10 @@ export default function Navigation() {
     handleCloseUserMenu();
     dispatch(logout());
     localStorage.clear();
-    navigate('/')
+    navigate("/");
   };
+
+ 
 
   // const handleMyOrderClick = () => {
   //   handleCloseUserMenu();
@@ -139,7 +141,7 @@ export default function Navigation() {
                             classNames(
                               selected
                                 ? "border-indigo-600 text-indigo-600"
-                                : "border-transparent text-gray-900",
+                                : "border-transparent text-[#190758]",
                               "flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium border-none"
                             )
                           }
@@ -153,7 +155,7 @@ export default function Navigation() {
                     {navigation.categories.map((category) => (
                       <Tab.Panel
                         key={category.name}
-                        className="space-y-10 px-4 pb-8 pt-10"
+                        className="space-y-10  px-4 pb-8 pt-10"
                       >
                         <div className="grid grid-cols-2 gap-x-4">
                           {category.featured.map((item) => (
@@ -413,8 +415,44 @@ export default function Navigation() {
                 </div>
               </Popover.Group>
 
-              <div className="ml-auto flex items-center">
-                <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+              <div className="ml-auto flex items-center space-x-6">
+                <div className="absolute top-[8.5] left-[28em] w-[40rem] p-4">
+                  <div className="relative">
+                    <input
+                      type="text"
+                      className="w-full border border-gray-300 p-2 pl-4 pr-16 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Search..."
+                    />
+                    <button className="absolute top-1/2 right-2 -translate-y-1/2 bg-[#190758] text-white px-4 py-1 rounded-lg hover:bg-[#290f89] focus:outline-none">
+                      <MagnifyingGlassIcon
+                        className="h-6 w-6 text-[white]"
+                        aria-hidden="true"
+                      />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Cart */}
+                <div className="relative">
+                  <Button
+                    onClick={() => navigate("/cart")}
+                    className="group -m-2 flex items-center p-2 relative"
+                  >
+                    <ShoppingCartIcon
+                      className="h-8 w-8 flex-shrink-0 text-[#190758]"
+                      aria-hidden="true"
+                    />
+                    {/* Badge for Product Count */}
+                    <div className="absolute bottom-7 right-1">
+                      <span className="bg-[#190758] text-white rounded-full text-xs font-medium flex items-center justify-center h-5 w-5">
+                        {cart.cart?.totalItem}
+                      </span>
+                    </div>
+                  </Button>
+                </div>
+
+                {/* Profile or Signin */}
+                <div className="hidden lg:flex items-center">
                   {auth.user?.firstName ? (
                     <div>
                       <Avatar
@@ -456,38 +494,6 @@ export default function Navigation() {
                       Signin
                     </Button>
                   )}
-                </div>
-
-                {/* Search */}
-                <div className="flex items-center lg:ml-6">
-                  <p
-                    onClick={() => navigate("/products/search")}
-                    className="p-2 text-gray-400 hover:text-gray-500"
-                  >
-                    <span className="sr-only">Search</span>
-
-                    <MagnifyingGlassIcon
-                      className="h-6 w-6"
-                      aria-hidden="true"
-                    />
-                  </p>
-                </div>
-
-                {/* Cart */}
-                <div className="ml-4 flow-root lg:ml-6">
-                  <Button
-                    onClick={() => navigate("/cart")}
-                    className="group -m-2 flex items-center p-2"
-                  >
-                    <ShoppingBagIcon
-                      className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
-                      aria-hidden="true"
-                    />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                      2{/* {cart.cart?.totalItem} */}
-                    </span>
-                    <span className="sr-only">items in cart, view bag</span>
-                  </Button>
                 </div>
               </div>
             </div>

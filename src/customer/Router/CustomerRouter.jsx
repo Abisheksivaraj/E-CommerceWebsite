@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "../Pages/Homepage/HomePage";
-import Navbar from "../components/navigation/Navbar";
 import Footer from "../components/Footer/Footer";
 import Cart from "../components/cart/Cart";
 import Product from "../../customer/components/products/Product";
@@ -10,8 +9,6 @@ import ProductDetails from "../components/ProductDetails/ProductDetails";
 import Address from "../components/address/Address";
 import Order from "../components/orderPage/Order";
 import OrderDetails from "../components/orderPage/OrderDetails";
-import Register from "../Auth/Register";
-import Login from "../Auth/Login";
 import PaymentSuccess from "../components/payments/PaymentSuccess";
 const CustomerRouter = () => {
   return (

@@ -8,7 +8,7 @@ import adminOrderReducer from "./Admin/Order/Reducer";
 
 const rootReducers = combineReducers({
   auth: authReducer,
-  products: customerProductReducer,
+  product: customerProductReducer,
   cart: cartReducer,
   order: orderReducer,
   adminOrder: adminOrderReducer,

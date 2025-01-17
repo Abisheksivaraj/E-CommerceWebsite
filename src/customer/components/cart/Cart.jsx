@@ -8,6 +8,7 @@ import { store } from "../../../State/Store";
 
 const Cart = () => {
   const { cart } = useSelector((store) => store);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleBuy = () => {
@@ -22,8 +23,8 @@ const Cart = () => {
     <div className="min-h-screen bg-gray-100 py-8">
       <div className="container mx-auto lg:grid lg:grid-cols-3 lg:px-16 relative">
         <div className="col-span-2 bg-white p-6 rounded-lg shadow-md grid gap-4">
-          {cart.cart?.CartItem.map((item) => (
-            <CartItem item={item} />
+          {cart.cart?.cartItems?.map((item) => (
+            <CartItem  item={item} />
           ))}
         </div>
 
@@ -45,7 +46,7 @@ const Cart = () => {
               <div className="flex justify-between items-center">
                 <span>Discount</span>
                 <span className="font-semibold text-lg text-green-500">
-                  -₹{cart.cart?.totalDiscount}
+                  -₹{cart.cart?.discountedPrice}
                 </span>
               </div>
 

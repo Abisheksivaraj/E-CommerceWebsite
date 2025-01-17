@@ -54,7 +54,7 @@ export default function product() {
   const pageNumber = searchParams.get("page");
   const discount = searchParams.get("discount");
 
-  const { products } = useSelector((store) => store);
+  const { product } = useSelector((store) => store);
   console.log("pages", product.products?.totalPages);
 
   const handleFilter = (value, sectionId) => {
@@ -98,7 +98,7 @@ export default function product() {
       minDiscount: discount || 0,
       sort: sortValue || "price_low",
       pageNumber: pageNumber,
-      pageSize: 100,
+      pageSize: 30,
       stock: stockValue,
     };
     dispatch(findProducts(data));
@@ -391,8 +391,8 @@ export default function product() {
               {/* Product grid */}
               <div className="lg:col-span-3 w-full">
                 <div className="flex flex-wrap justify-center bg-white py-5">
-                  {products.products &&
-                    products.products?.content?.map((item) => (
+                  {product.products &&
+                    product.products?.content?.map((item) => (
                       <ProductCard product={item} />
                     ))}
                 </div>

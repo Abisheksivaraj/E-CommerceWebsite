@@ -36,7 +36,7 @@ const menu = [
   },
   {
     name: "Customers",
-    path: "/admin/customer",
+    path: "/admin/customers",
     icon: <People style={{ color: "white" }} />,
   },
   {
